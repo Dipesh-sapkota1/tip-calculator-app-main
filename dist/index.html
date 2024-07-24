@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js" defer></script>
+    <title>Tip Calculator App</title>
+  <link rel="stylesheet" href="./assets/main-CgvJCK2t.css">
+</head>
+<body class="min-h-screen grid place-content-center bg-cyan-light-grayish font-space text-cyan-very-dark">
+ <div class="container">
+    <h1 class="m-4 text-center text-cyan-very-dark uppercase font-bold tracking-[1rem]">spli<br>tter</h1>
+    <!-- card -->
+    <div class="card  bg-white p-8 rounded-xl sm:flex gap-7 lg:max-w-[800px] space-y-5">
+        <div class="calc_section flex-1 grid gap-y-10">
+            <!-- Bill calculation section-->
+            <div>
+                <p class="text-cyan-dark-grayish my-1">Bill</p>
+                <input type="text" class="p-2 rounded bg-cyan-very-light-grayish text-inherit w-full text-[1.5rem] focus:outline-cyan-light-grayish outline-1 cursor-pointer font-bold text-end" id="bill-amt" placeholder="$">
+            </div>
+            <!-- select tip % -->
+           <div class="">
+            <p class="text-cyan-dark-grayish my-1">Select tip %</p>
+            <div class="grid gap-3 grid-cols-2 sm:grid-cols-3">
+                <button class="btn" data-value="0.5">5%</button>
+                <button class="btn" data-value="0.10">10%</button>
+                <button class="btn" data-value="0.15">15%</button>
+                <button class="btn" data-value="0.25">25%</button>
+                <button class="btn" data-value="0.5">50%</button>
+                <input class="bg-cyan-very-light-grayish text-cyan-dark-grayish cursor-pointer text-center rounded-md text-[1.5rem]  focus:outline-cyan-light-grayish outline-1 font-bold" type="text" id="custom-tip" placeholder="Custom"></input>
+            </div>
+           </div>
+
+           <div class="">
+            <p class="text-cyan-dark-grayish my-1">Number of people</p>
+            <input type="number" class="p-2 rounded bg-cyan-very-light-grayish text-inherit w-full text-[1.5rem] focus:outline-cyan-light-grayish outline-1 cursor-pointer font-bold text-end" required id="people" placeholder="pep">
+           </div>
+        </div>
+
+        <!-- total section -->
+        <div class="total_display rounded-md p-8 bg-cyan-very-dark text-cyan-grayish flex-1">
+            <div>
+                <div class="flex justify-between items-center my-7">
+                    <div class="">
+                     <p class="text-white">Tip Amount</p>
+                     <p>/ person</p>
+                    </div>
+                     <div id="tip-person" class="text-4xl text-cyan-strong">$0.00</div>
+                 </div>
+                 <div class="flex justify-between items-center my-7">
+                    <div class="">
+                     <p class="text-white">Total</p>
+                     <p>/ person</p>
+                    </div>
+                     <div id="amt-person" class="text-4xl text-cyan-strong">$0.00</div>
+                 </div>
+            </div>
+         
+            <button class="btn_reset  font-bold text-cyan-grayish bg-cyan-dark-grayish w-full rounded py-2 sm:mt-28 hover:bg-cyan-strong hover:text-cyan-very-dark uppercase ">Reset</button>
+        </div>
+    </div>
+ </div>  
+ 
+   
+</body>
+</html>

@@ -6,3 +6,6 @@
     @apply p-3 bg-cyan-very-dark text-white font-bold rounded-md hover:bg-cyan-strong hover:text-cyan-very-dark cursor-pointer 
     
 }
+.hover{
+    @apply bg-cyan-light-grayish text-cyan-very-dark
+}
