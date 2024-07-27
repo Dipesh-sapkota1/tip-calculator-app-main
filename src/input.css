@@ -1,11 +1,19 @@
+@import './custom.css';
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.btn{
-    @apply p-3 bg-cyan-very-dark text-white font-bold rounded-md hover:bg-cyan-strong hover:text-cyan-very-dark cursor-pointer 
-    
+
+@layer base{
+    input{
+        @apply focus:outline-none text-[1.5rem] text-customCyan-900 font-bold
+    }
+
 }
-.hover{
-    @apply bg-cyan-light-grayish text-cyan-very-dark
+@layer utilities{
+    .lead{
+        @apply text-customCyan-grey-900 font-bold
+    }
+    .tip-btn{
+        @apply bg-customCyan-900 rounded p-1 text-white text-[1.5rem] font-bold hover:bg-customCyan-400 hover:text-customCyan-900    }
 }
