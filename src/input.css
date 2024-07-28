@@ -6,14 +6,25 @@
 
 @layer base{
     input{
-        @apply focus:outline-none text-[1.5rem] text-customCyan-900 font-bold
+        @apply focus:outline-none text-[1.5rem] text-customCyan-900 font-bold cursor-pointer
     }
-
 }
 @layer utilities{
     .lead{
-        @apply text-customCyan-grey-900 font-bold
+        @apply text-customCyan-grey-900 font-bold my-2
     }
     .tip-btn{
-        @apply bg-customCyan-900 rounded p-1 text-white text-[1.5rem] font-bold hover:bg-customCyan-400 hover:text-customCyan-900    }
+        @apply bg-customCyan-900 rounded p-1 text-white text-[1.5rem] font-bold hover:bg-customCyan-grey-200 hover:text-customCyan-900  
+      }
+      .reset-btn{
+          @apply inline-block w-full my-2 text-center uppercase bg-customCyan-400 opacity-30 hover:opacity-100 text-customCyan-grey-900 p-2 rounded font-bold hover:bg-customCyan-grey-200 hover:text-customCyan-900 md:mt-auto
+        }
+        .active{
+          @apply bg-customCyan-400 text-customCyan-900 opacity-100
+        }
+      .custom-shadow{
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+    
 }
+ 

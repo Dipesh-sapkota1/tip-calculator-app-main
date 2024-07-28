@@ -9,16 +9,16 @@
 </head>
 <body class="font-space bg-customCyan-grey-200">
 <main>
-    <div class="min-h-screen flex flex-col items-center  md:translate-y-[10%]">
-        <h1 class="uppercase text-customCyan-900 font-bold tracking-[0.5rem] my-6">spli<br>tter</h1>
-        <section class="bg-white p-6 rounded-2xl md:flex md:gap-4  md:max-w-[700px]">
+    <div class="min-h-screen flex flex-col items-center  md:justify-center md:gap-8 -translate-y-6">
+        <h1 class="uppercase text-customCyan-900 font-bold tracking-[0.5rem] my-6 pt-4">spli<br>tter</h1>
+        <section class="bg-white p-6 rounded-2xl md:flex md:gap-10  md:max-w-[800px] custom-shadow">
             <!-- Input -->
-            <div class="grid gap-6 md:flex-1">
+            <div class="grid gap-6 md:flex-1 md:gap-9">
                 <div class="input-group ">
                     <label for="bill" class="lead">Bill</label>
-                    <div class="flex w-full items-center bg-customCyan-grey-100 mt-1 rounded px-3 py-1">
+                    <div class="flex w-full items-center bg-customCyan-grey-100 mt-1 rounded  outline-2 hover:outline hover:outline-customCyan-400 p-2">
                     <img src="./images/icon-dollar.svg" alt="">
-                    <input type="number" class="flex-grow p-1 bg-transparent  text-end " id="bill">
+                    <input type="number" class="flex-grow  bg-transparent  text-end px-4" id="bill" placeholder="0">
                    </div>
                 </div>
                 <div class="input-group ">
@@ -29,35 +29,37 @@
                         <button class="tip-btn" data-tip="15">15%</button>
                         <button class="tip-btn" data-tip="25">25%</button>
                         <button class="tip-btn" data-tip="50">50%</button>
-                        <input type="number" class="p-1 bg-customCyan-grey-100 text-center rounded text-[1.5rem] font-bold text-customCyan-900" id="custom-tip" placeholder="Custom">
+                        <input type="number" class="p-1 border-2 border-transparent hover:border-customCyan-400 bg-customCyan-grey-100 text-center rounded text-[1.5rem] font-bold text-customCyan-900" id="custom-tip" placeholder="Custom">
                     </div>
                 </div>
                 <div class="input-group">
                     <label for="people" class="lead">Number of People</label>
-                    <div class="flex w-full items-center bg-customCyan-grey-100 mt-1 rounded px-3 py-1">
+                    <span class=" text-red-500 ml-[3rem] hidden" id="error-text">can't be zero</span>
+                    <div class="flex w-full items-center bg-customCyan-grey-100 mt-1 rounded   outline-2 outline-red-500 hover:outline hover:outline-customCyan-400 p-2" id="people-box">
                     <img src="./images/icon-person.svg" alt="">
-                    <input type="number" class="flex-grow p-1 bg-transparent  text-end " id="people">
+                    <input type="number" class=" flex-grow  bg-transparent  text-end px-4" id="people" placeholder="0">
                    </div>
                    </div>
                 </div>
           
             <!-- Output -->
-            <div class="p-5 mt-5 md:mt-0 bg-customCyan-900 rounded-xl md:flex-1 md:grid gap-5">
-                <div class="output-group flex justify-between items-center">
+            <div class="p-5 md:p-8 mt-5 md:mt-0 bg-customCyan-900 rounded-xl md:flex-1 flex flex-col gap-5 md:gap-9">
+
+                <div class="output-group flex justify-between items-center mt-4">
                     <div class="amount-label">
                         <p class="font-bold text-white">Tip Amount</p>
                         <p class="text-customCyan-grey-500">/ person</p>
                     </div>
-                    <span class="font-bold text-customCyan-400 text-3xl" id="total-tip">$0.00</span>
+                    <span class="font-bold text-customCyan-400 text-3xl md:text-4xl" id="total-tip">$0.00</span>
                 </div>
-                <div class="output-group flex justify-between items-center">
+                <div class="output-group flex justify-between items-center ">
                     <div class="amount-label">
                         <p class="font-bold text-white">Total Amount</p>
                         <p class="text-customCyan-grey-500">/ person</p>
                     </div>
-                    <span class="font-bold text-customCyan-400 text-3xl" id="total-bill">$0.00</span>
+                    <span class="font-bold text-customCyan-400 text-3xl md:text-4xl" id="total-bill">$0.00</span>
                 </div>
-                <button class="md:mt-auto inline-block w-full my-2 text-center uppercase bg-customCyan-400 text-customCyan-900 p-2 rounded font-bold hover:bg-customCyan-grey-200 hover:text-customCyan-900 " id="reset-btn">Reset</button>
+                <button class="reset-btn" id="reset-btn">Reset</button>
             </div>
         </section>
     </div>
