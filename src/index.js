@@ -11,11 +11,12 @@
 
     let bill_Amount = 0;
     let tip_Amount = 0;
+    let custom_Tip = 0;
     let people_count = 0;
 
     function calculateTip() {
         resetBtn.classList.add('active');
-        const tipAmt =  (((tip_Amount  / 100) * bill_Amount) / people_count );
+        const tipAmt =  (((tip_Amount  / 100) * bill_Amount)  / people_count ) || (custom_Tip / people_count) ;
         const billAmt =  (tipAmt + (bill_Amount / people_count));
         if(people_count <= 0 || people.value === ''){
             totalTip.innerText = `$0.00`;
@@ -66,11 +67,12 @@
     });
     customTip.addEventListener('input',(e)=>{
         tipBtns.forEach(btn=>{btn.classList.remove('active')});
-        tip_Amount = +e.target.value;
-        if(tip_Amount > 0 && bill_Amount > 0 && tip_Amount > 0){
+        tip_Amount = 0;
+        custom_Tip = +e.target.value;
+        if(custom_Tip > 0 && bill_Amount > 0 && custom_Tip > 0){
             calculateTip();
         }else{
-            tip_Amount = 0;
+            custom_Tip = 0;
         }
     })
     resetBtn.addEventListener('click',reset);
