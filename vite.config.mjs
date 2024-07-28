@@ -5,13 +5,27 @@ function adjustHtmlPlugin() {
   return {
     name: 'adjust-html',
     transformIndexHtml(html) {
-      return html.replace(
-        /<link rel="stylesheet"[^>]*href="([^"]*)"[^>]*>/g,
-        (match, p1) => {
+      // Adjust CSS paths and remove crossorigin attribute
+      html = html.replace(
+        /<link rel="stylesheet"[^>]*href="([^"]*)"(.*?)>/g,
+        (match, p1, p2) => {
           const newPath = p1.replace(/^\//, './');
-          return `<link rel="stylesheet" href="${newPath}">`;
+          const newAttrs = p2.replace(/crossorigin=["'][^"']*["']\s*/, '');
+          return `<link rel="stylesheet" href="${newPath}"${newAttrs}>`;
         }
       );
+
+      // Adjust script paths and remove crossorigin attribute
+      html = html.replace(
+        /<script[^>]*src="([^"]*)"(.*?)><\/script>/g,
+        (match, p1, p2) => {
+          const newPath = p1.replace(/^\//, './');
+          const newAttrs = p2.replace(/crossorigin=["'][^"']*["']\s*/, '');
+          return `<script type="module" src="${newPath}"${newAttrs}></script>`;
+        }
+      );
+
+      return html;
     }
   };
 }
