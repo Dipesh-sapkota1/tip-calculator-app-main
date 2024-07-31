@@ -18,32 +18,35 @@
         resetBtn.classList.add('active');
         const tipAmt =  (((tip_Amount  / 100) * bill_Amount)  / people_count ) || (custom_Tip / people_count) ;
         const billAmt =  (tipAmt + (bill_Amount / people_count));
-        if(people_count <= 0 || people.value === ''){
-            totalTip.innerText = `$0.00`;
-            totalBill.innerText = `$0.00`;
-        }else{     
-            totalTip.innerText = `$${tipAmt.toFixed(2)}`;
-            totalBill.innerText = `$${billAmt.toFixed(2)}`;
-        }
+        console.log(billAmt,bill_Amount);
+        totalTip.innerText = `$${tipAmt.toFixed(2)}`;
+        totalBill.innerText = `$${billAmt.toFixed(2)}`;
     }
      
     bill.addEventListener('input',(e)=>{
         bill_Amount = +e.target.value;
-        if(bill_Amount > 0){
+        calculateTip();
+        if(bill_Amount < 0 && people_count > 0){
             calculateTip();
-        }else{
-            bill_Amount = 0;
-            bill.value = 0;
         }
-            
+        else if(bill_Amount > 0 && people_count <=0){
+            showError();
+        }else if(bill_Amount <= 0 && people_count <=0){
+            removeError();
+            tipBtns.forEach(btn=>{btn.classList.remove('active')});
+            tip_Amount = 0;
+        }
     });
 
     tipBtns.forEach(button =>{
         button.addEventListener('click',()=>{
             tipBtns.forEach(btn =>{
                 customTip.value = '';
+                custom_Tip = 0;
                 btn.classList.remove('active');
-                calculateTip();
+                if(people_count > 0){
+                    calculateTip();
+                }
             });
             button.classList.add('active');
             tip_Amount = +button.dataset.tip; 
@@ -54,25 +57,25 @@
         people_count = +e.target.value;
         if(people_count > 0){
             calculateTip();
-            errorInput.classList.remove('outline');
-            errorMsg.classList.add('hidden');
-        }else{
-            people_count = 0;
-            people.value = 0;
+            removeError();
+        }else if(people_count <= 0 && bill_Amount > 0){
             totalTip.innerText = `$0.00`;
             totalBill.innerText = `$0.00`;
-            errorInput.classList.add('outline');
-            errorMsg.classList.remove('hidden');
+            showError();
+        }else{
+            totalTip.innerText = `$0.00`;
+            totalBill.innerText = `$0.00`;
+            removeError();
+            tip_Amount = 0;
+            tipBtns.forEach(btn=>{btn.classList.remove('active')});
         }
     });
     customTip.addEventListener('input',(e)=>{
         tipBtns.forEach(btn=>{btn.classList.remove('active')});
         tip_Amount = 0;
         custom_Tip = +e.target.value;
-        if(custom_Tip > 0 && bill_Amount > 0 && custom_Tip > 0){
+        if(people_count > 0){
             calculateTip();
-        }else{
-            custom_Tip = 0;
         }
     })
     resetBtn.addEventListener('click',reset);
@@ -87,7 +90,16 @@
        tip_Amount = 0;
        people_count = 0;
        resetBtn.classList.remove('active');
+       removeError();
        tipBtns.forEach(btn=>{btn.classList.remove('active')});
+    }
+    function showError(){
+        errorInput.classList.add('outline');
+        errorMsg.classList.remove('hidden');
+    }
+    function removeError(){
+        errorInput.classList.remove('outline');
+        errorMsg.classList.add('hidden');
     }
    
  })

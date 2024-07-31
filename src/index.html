@@ -18,7 +18,7 @@
                     <label for="bill" class="lead">Bill</label>
                     <div class="flex w-full items-center bg-customCyan-grey-100 mt-1 rounded  outline-2 hover:outline hover:outline-customCyan-400 p-2">
                     <img src="./images/icon-dollar.svg" alt="">
-                    <input type="number" class="flex-grow  bg-transparent  text-end px-4" id="bill" placeholder="0">
+                    <input type="number" class="flex-grow  bg-transparent  text-end px-4" id="bill" min="0" placeholder="0">
                    </div>
                 </div>
                 <div class="input-group ">
@@ -29,7 +29,7 @@
                         <button class="tip-btn" data-tip="15">15%</button>
                         <button class="tip-btn" data-tip="25">25%</button>
                         <button class="tip-btn" data-tip="50">50%</button>
-                        <input type="number" class="p-1 border-2 border-transparent hover:border-customCyan-400 bg-customCyan-grey-100 text-center rounded text-[1.5rem] font-bold text-customCyan-900" id="custom-tip" placeholder="Custom">
+                        <input type="number" class="p-1 border-2 border-transparent hover:border-customCyan-400 bg-customCyan-grey-100 text-center rounded text-[1.5rem] font-bold text-customCyan-900" id="custom-tip" min="0" placeholder="Custom">
                     </div>
                 </div>
                 <div class="input-group">
@@ -37,7 +37,7 @@
                     <span class=" text-red-500 ml-[3rem] hidden" id="error-text">can't be zero</span>
                     <div class="flex w-full items-center bg-customCyan-grey-100 mt-1 rounded   outline-2 outline-red-500 hover:outline hover:outline-customCyan-400 p-2" id="people-box">
                     <img src="./images/icon-person.svg" alt="">
-                    <input type="number" class=" flex-grow  bg-transparent  text-end px-4" id="people" placeholder="0">
+                    <input type="number" class=" flex-grow  bg-transparent  text-end px-4" id="people" min="0" placeholder="0">
                    </div>
                    </div>
                 </div>
